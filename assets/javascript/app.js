@@ -1,3 +1,9 @@
+// AOS //
+AOS.init();
+// end of AOS //
+// -------------//
+
+
 // connect to Charity API //
 function charityAPI() {
 
