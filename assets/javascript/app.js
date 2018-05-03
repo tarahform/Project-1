@@ -42,6 +42,7 @@ var map = new H.Map( // Instantiate (and display) a map object: //
 
 
 // connect to FireBase//
+var database = firebase.database();
 var config = {
     apiKey: "AIzaSyDw2fGubKChCX3algyFvj918R6YxYsd6KU",
     authDomain: "succor-ecff7.firebaseapp.com",
