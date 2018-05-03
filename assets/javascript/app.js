@@ -63,7 +63,9 @@ firebase.initializeApp(config);
 
 
 // Functionality //
-
+$("#signUpBtn").on("click", function () {
+    console.log("Clicked");
+});
 // End of Functionality //
 // -------------//
 
