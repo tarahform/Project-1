@@ -77,31 +77,35 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // end of map on page //
 // // -------------//
 
-// Functionality //
 
-// ------modal //
-$("#signUpBtn").on("click", function () {
-    // console.log("Clicked");
-    var modal = document.getElementById('Modal');
-    var btn = document.getElementById("Btn");
-    var span = document.getElementsByClassName("close")[0];
+$(document).ready(function () {
+    // Functionality //
 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
+    // ------modal //
+    $("#signUpBtn").on("click", function () {
+        // console.log("Clicked");
+        $("#modal").modal("show");
+        var modal = document.getElementById("modal");
+        var btn = document.getElementById("submitbtn");
+        var span = document.getElementsByClassName("close")[0];
 
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
 
-    window.onclick = function (event) {
-        if (event.target === modal) {
+        span.onclick = function () {
             modal.style.display = "none";
         }
-    }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+    // -------end of modal//
+
+
+    // End of Functionality //
+    // -------------//
 });
-// -------end of modal//
-
-
-// End of Functionality //
-// -------------//

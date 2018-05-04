@@ -140,54 +140,73 @@
                                 ipsam, libero quod atque? Illo consequatur ipsam quaerat? Nihil, possimus rerum.
                             </p>
                         </div>
-                        <button type="button" class="btn btn-outline-danger" id="signUpBtn">Start Connecting!</button>
-                        <!--modal-->
-                        <div id="modal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <p></p>
-                                <form>
-                                    <input id=firstNameModal type="text" class="form-control" placeholder="First Name">
-                                    <input id=lastNameModal type="text" class="form-control" placeholder="Last Name">
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Succor Developers-->
-            <div class="row" id="developers">
-                <div class="col-md-12 aos-item" data-aos="flip-up">
-                    <h2 class="developers">Developers</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 aos-item" data-aos="flip-down">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 aos-item" data-aos="flip-down">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 aos-item" data-aos="flip-down">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!--modal-->
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-outline-danger" id="signUpBtn">Start Connecting!</button>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p></p>
+                        <form>
+                            <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
+                            <br>
+                            <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
+                            <br>
+                            <div class="form-group">
+                                <label for="emailInputModal">Email address</label>
+                                <br>
+                                <input type="email" class="form-control" id="emailInputModal" placeholder="Enter email">
+                                <br>
+                            </div>
+
+                            <input id="organizationModal" type="text" class="form-control" placeholder="Organization">
+                            <br>
+
+                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Succor Developers-->
+        <div class="row" id="developers">
+            <div class="col-md-12 aos-item" data-aos="flip-up">
+                <h2 class="developers">Developers</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/TarahPerry.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
 
@@ -248,7 +267,7 @@
     <!--FireBase-->
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <!--Google Maps API-->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLEMm7l7B-PEciXFEKcYVYc7Vt6ksEHZk&callback=initMap"> </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAny8QhQ3ISkkGwCimkBoNfskamSbb7hBU&callback=initMap"> </script>
     <!--JS-->
     <script src="./assets/javascript/app.js"></script>
 </body>
