@@ -19,14 +19,14 @@ function charityAPI() {
         renderButtons();
     });
 }
-// end of API //
-// -------------//
+// // end of API //
+// // -------------//
 
 
-// connect to HERE API //
+// // connect to HERE API //
 var platform = new H.service.Platform({
-    app_id: "neyYi3GisiDC0ArbzBzM",
-    app_code: "tsCL6k0QbcmLexowXF3zzw",
+    'app_id': "neyYi3GisiDC0ArbzBzM",
+    'app_code': "tsCL6k0QbcmLexowXF3zzw",
 });
 
 var maptypes = platform.createDefaultLayers(); // Obtain the default map types from the platform object //
@@ -37,11 +37,11 @@ var map = new H.Map( // Instantiate (and display) a map object: //
         zoom: 10,
         center: { lng: 13.4, lat: 52.51 }
     });
-// end of API //
-// -------------//
+// // end of API //
+// // -------------//
 
 
-// connect to FireBase//
+// // connect to FireBase//
 var database = firebase.database();
 var config = {
     apiKey: "AIzaSyDw2fGubKChCX3algyFvj918R6YxYsd6KU",
