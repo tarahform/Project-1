@@ -1,12 +1,25 @@
-.jumbotron {
-    height: 300px; 
-    margin: 0px;
+/* HEADER */
+.header-image {
+    width: 100%;
+    height: 450px;
 }
 
+
 .row {
-    margin: 50px 0px;  
+    margin: 50px 0;
 }
+/* BUTTONS */
 
 button {
     margin: 50px;
+}
+
+.developers {
+    text-align: center;
+}
+
+/* FOOTER */
+footer a {
+    text-decoration: none;
+    color: black;
 }
