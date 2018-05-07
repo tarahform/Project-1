@@ -35,6 +35,10 @@ footer a {
     color: black;
 }
 
+.page-footer {
+    background-color: rgb(1, 156, 84);
+}
+
 /* Map */
 #map {
     height: 400px;
@@ -76,3 +80,42 @@ footer a {
     cursor: pointer;
 }
 
+/* overlay image */
+.developer-image {
+    position: relative;
+    width: 100%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgb(1, 105, 56);
+  }
+  
+  .developer-image:hover .overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
