@@ -63,29 +63,53 @@
         <!--Bar Under Image with Icons-->
 
         <div class="row" id="icons">
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-center">
                 <i class="fab fa-hubspot fa-7x"></i>
                 <h2>Heading</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Connect</button>
+                <!--sign up modal-->
+                <button type="button" class="btn btn-success" id="signUpBtn">Start Connecting!</button>
+                <div id="signUpModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p></p>
+                        <form>
+                            <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
+                            <br>
+                            <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
+                            <br>
+                            <input type="email" class="form-control" id="emailInputModal" placeholder="Enter email">
+                            <br>
+                            <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
 
             </div>
 
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-center">
                 <i class="fas fa-hands-helping fa-7x"></i>
                 <h2>Heading</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Reach Out</button>
-
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="far fa-heart fa-7x"></i>
-                <h2>Heading</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Give Back</button>
-
+                <!--search modal-->
+                <button type="button" class="btn btn-success" id="searchBtn">Start Searching!</button>
+                <div id="searchModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p></p>
+                        <form>
+                            <input id="categoryInput" type="text" class="form-control" placeholder="Category">
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+
+
         <!--Mission Statement-->
         <div class="row" id="mission-statement">
             <div class="col-md-12 aos-item" data-aos="flip-left">
@@ -98,39 +122,6 @@
             </div>
         </div>
 
-
-        <!--modal-->
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 text-center">
-                <button type="button" class="btn btn-outline-danger" id="signUpBtn">Start Connecting!</button>
-                <div id="signUpModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p></p>
-                        <form>
-                            <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
-                            <br>
-                            <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
-                            <br>
-                            <div class="form-group">
-                                <label for="emailInputModal">Email address</label>
-                                <br>
-                                <input type="email" class="form-control" id="emailInputModal" placeholder="Enter email">
-                                <br>
-                            </div>
-
-                            <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
-                            <br>
-
-                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-
         <hr />
 
         <!--Headings with Pictures-->
@@ -138,7 +129,8 @@
         <div class="row">
             <div class="col-md-7">
                 <h2>Provide us with your location</h2>
-                <h4>Discover local charities and upcoming events that you want to get involved in! Connect and get started today.</h4>
+                <h4>Discover local charities and upcoming events that you want to get involved in! Connect and get started today.
+                </h4>
             </div>
             <div class="col-md-5 aos-item" id="map" data-aos="fade-left">
             </div>
@@ -170,35 +162,6 @@
 
 
         <!--About Succor-->
-
-        <!--search modal-->
-        <div class="row">
-            <div class="col-md-12">
-                <button type="button" class="btn btn-outline-danger" id="searchBtn">Start Searching!</button>
-                <div id="searchModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p></p>
-                        <form>
-                            <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
-                            <br>
-                            <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
-                            <br>
-                            <div class="form-group">
-                                <label for="emailInputModal">Email address</label>
-                                <br>
-                                <input type="email" class="form-control" id="emailInputModal" placeholder="Enter email">
-                                <br>
-                            </div>
-
-                            <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
-                            <br>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <div class="row" id="about-succor">
             <div class="col-md-5 aos-item" data-aos="flip-left">
