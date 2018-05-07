@@ -52,7 +52,7 @@ function searchCharityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
     var donorSearch = $("#categoryInput").val().trim();
-    var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
+    var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&rows=10&searchTerm=" + donorSearch;
 
 
     $.ajax({
