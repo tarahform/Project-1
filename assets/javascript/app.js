@@ -3,6 +3,14 @@ AOS.init();
 // end of AOS //
 // -------------//
 
+// helps the charity API//
+jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
+// helps the charity API//
+
 // // connect to FireBase//
 var config = {
     apiKey: "AIzaSyDw2fGubKChCX3algyFvj918R6YxYsd6KU",
@@ -46,15 +54,30 @@ function searchCharityAPI() {
     var donorSearch = $("#categoryInput").val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
 
+
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#categoryInput").text(JSON.stringify(response));
-        renderButtons();
+        // $("#categoryInput").text(JSON.stringify(response));
+        renderButtons(response.data);
     });
     console.log(categoryInput.value)
 }
+
+$("#charityTable").hide();
+function renderButtons(charityList) {
+    $("#charityList").empty();
+    for (var i = 0; i < charityList.length; i++) {
+        var charity = charityList[i];
+
+        $("#charityTable").show();
+        var row = "<tr><td>" + charity.category + "</td><td>" + charity.charityName + "</td><td><a href>" + charity.url + "</a></td></tr>";
+        $("#charityList").append(row);
+    }
+}
+
+
 // // // end of API //
 // // // -------------//
 
@@ -110,14 +133,9 @@ $(document).ready(function () {
         $("#signUpModal").modal("show");
         var modal = document.getElementById("signUpModal");
         var btn = document.getElementById("signUpBtn");
-        var span = document.getElementsByClassName("close")[0];
 
         btn.onclick = function () {
             modal.style.display = "block";
-        }
-
-        span.onclick = function () {
-            modal.style.display = "none";
         }
 
         window.onclick = function (event) {
@@ -156,14 +174,9 @@ $(document).ready(function () {
         $("#searchModal").modal("show");
         var modal = document.getElementById("searchModal");
         var btn = document.getElementById("searchBtn");
-        var span = document.getElementsByClassName("close")[0];
 
         btn.onclick = function () {
             modal.style.display = "block";
-        }
-
-        span.onclick = function () {
-            modal.style.display = "none";
         }
 
         window.onclick = function (event) {
@@ -172,16 +185,17 @@ $(document).ready(function () {
             }
         };
     }); //end of modal -- beginning on submit click function //
+
     $("#searchSubmitBtn").on("click", function (event) {
         event.preventDefault()
         // console.log("searchSubmitBtn clicked")
         var searchInput = $("#categoryInput").val().trim();
         // console.log(searchInput.value)
-        database.ref().push(searchInput);
+        // database.ref().push(searchInput);
         $("#searchModal").modal("toggle");
-    });
-    // end of submit click btn //
-    searchCharityAPI()
+        searchCharityAPI()
+    }); // end of submit click btn //
+
 
 
     // End of Functionality //
