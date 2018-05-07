@@ -29,7 +29,7 @@ function charityAPI() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#").text(JSON.stringify(response));
+        $("#" /* = insert DIV ID here*/).text(JSON.stringify(response));
         renderButtons();
     });
 }
@@ -48,7 +48,7 @@ function charityAPI() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#").text(JSON.stringify(response));
+        $("#" /* = insert DIV ID here*/).text(JSON.stringify(response));
         renderButtons();
     });
 }
