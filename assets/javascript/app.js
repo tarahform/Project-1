@@ -29,7 +29,7 @@ function charityAPI() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#" /* = insert DIV ID here*/).text(JSON.stringify(response));
+        $("#einModal").text(JSON.stringify(response));
         renderButtons();
     });
 }
@@ -41,7 +41,7 @@ function charityAPI() {
 function charityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var donorSearch  ;
+    var donorSearch;
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
 
     $.ajax({
