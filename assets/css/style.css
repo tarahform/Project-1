@@ -4,18 +4,29 @@
     height: 450px;
 }
 
-
-.row {
-    margin: 50px 0;
+hr {
+    margin:50px 0; 
 }
 
-/* BUTTONS */
-button {
-    margin: 50px;
+/*ICON ROW */
+#icons {
+    margin-top: 50px; 
 }
 
 .developers {
     text-align: center;
+}
+
+/* Mission Statement */
+#mission-statement {
+    margin: 75px 0px; 
+}
+
+#tree {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* FOOTER */
@@ -64,3 +75,4 @@ footer a {
     text-decoration: none;
     cursor: pointer;
 }
+
