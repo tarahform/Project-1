@@ -19,7 +19,7 @@ var database = firebase.database();
 
 
 // // connect to Charity API ----- For Charity//
-function charityAPI() {
+function signupCharityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
     var EIN = document.getElementById('einModal'.value); // $("#einModal").val().trim();
@@ -40,7 +40,7 @@ function charityAPI() {
 
 
 // // connect to Charity API ----- For Donors//
-function charityAPI() {
+function searchCharityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
     var donorSearch = $("#categoryInput").val().trim();;
@@ -104,11 +104,12 @@ $(document).ready(function () {
     // Functionality //
 
     // ------sign up modal //
-    $("#signUpBtn").on("click", function () {
+    $("#signUpBtn").on("click", function (event) {
+        event.preventDefault()
         // console.log("Clicked");
         $("#signUpModal").modal("show");
         var modal = document.getElementById("signUpModal");
-        var btn = document.getElementById("SignUpSubmitBtn");
+        var btn = document.getElementById("signUpBtn");
         var span = document.getElementsByClassName("close")[0];
 
         btn.onclick = function () {
@@ -125,12 +126,13 @@ $(document).ready(function () {
             }
         };
     }); //end of modal -- beginning on submit click function //
-    $("#searchSubmitBtn").on("click", function () {
+    $("#signUpSubmitBtn").on("click", function (event) {
+        event.preventDefault()
         // console.log("SignUpSubmitBtn clicked")
 
         var firstNameInput = $("#firstNameModal").val().trim();
         var lastNameInput = $("#lastNameModal").val().trim();
-        var emailInput = $("#emailModal").val().trim();
+        var emailInput = $("#emailInputModal").val().trim();
         var einInput = $("#einModal").val().trim();
 
         var newUser = {
@@ -141,17 +143,19 @@ $(document).ready(function () {
         }
         // console.log(newUser);
         database.ref().push(newUser);
+        $("#signUpModal").modal("toggle");
     });
     // end of submit click btn //
 
 
 
     // ------search modal //
-    $("#searchBtn").on("click", function () {
+    $("#searchBtn").on("click", function (event) {
+        event.preventDefault()
         // console.log("Clicked");
         $("#searchModal").modal("show");
         var modal = document.getElementById("searchModal");
-        var btn = document.getElementById("SearchSubmitBtn");
+        var btn = document.getElementById("searchBtn");
         var span = document.getElementsByClassName("close")[0];
 
         btn.onclick = function () {
@@ -168,11 +172,13 @@ $(document).ready(function () {
             }
         };
     }); //end of modal -- beginning on submit click function //
-    $("#searchSubmitBtn").on("click", function () {
+    $("#searchSubmitBtn").on("click", function (event) {
+        event.preventDefault()
         // console.log("searchSubmitBtn clicked")
         var searchInput = $("#categoryInput").val().trim();
-        console.log(searchInput.value)
+        // console.log(searchInput.value)
         database.ref().push(searchInput);
+        $("#searchModal").modal("toggle");
     });
     // end of submit click btn //
 
