@@ -55,99 +55,54 @@
     </nav>
     <!--Navbar End-->
 
+    
     <!--Header Image-->
     <img class="header-image" src="./assets/images/Connecting.jpg" class="img-fluid">
 
     <div class="container">
+<!--Bar Under Image with Icons-->
 
-        <!--map-->
-        <div class="row">
-            <div class="col-md-12">
-                <div id="map"></div>
-            </div>
-        </div>
-
-
-        <!--Bar Under Image with Icons-->
-
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <i class="fab fa-hubspot fa-7x"></i>
-                <h2>Heading</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Connect</button>
-
-            </div>
-
-            <div class="col-md-4 text-center">
-                <i class="fas fa-hands-helping fa-7x"></i>
-                <h2>Heading</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Reach Out</button>
-
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="far fa-heart fa-7x"></i>
-                <h2>Heading</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button type="button" class="btn btn-success btn-lg">Give Back</button>
-
-            </div>
-        </div>
-        <hr />
-
-        <!--Headings with Pictures-->
-
-        <div class="row">
-            <div class="col-md-7">
-                <h2>Heading About Something</h2>
-                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum doloribus voluptatibus dicta atque in numquam
-                    odit dolorem, nisi natus possimus, pariatur ex quo sed dolorum suscipit repellat impedit ab dolore.</h4>
-            </div>
-            <div class="col-md-5 aos-item" data-aos="fade-left">
-                <img src="./assets/images/volunteers.jpg" class="img-fluid">
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-md-5 aos-item" data-aos="fade-down-right">
-                <img src="./assets/images/give-back.png" class="img-fluid">
-            </div>
-            <div class="col-md-7">
-                <h2>Heading About Something</h2>
-                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum doloribus voluptatibus dicta atque in numquam
-                    odit dolorem, nisi natus possimus, pariatur ex quo sed dolorum suscipit repellat impedit ab dolore.</h4>
-            </div>
+<div class="row" id="icons">
+        <div class="col-md-4 text-center">
+            <i class="fab fa-hubspot fa-7x"></i>
+            <h2>Heading</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <button type="button" class="btn btn-success btn-lg">Connect</button>
 
         </div>
-        <hr />
 
+        <div class="col-md-4 text-center">
+            <i class="fas fa-hands-helping fa-7x"></i>
+            <h2>Heading</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <button type="button" class="btn btn-success btn-lg">Reach Out</button>
 
-        <!--About Succor-->
-
-        <div id="about-succor">
-            <div class="row" id="mission-statement">
-                <div class="col-md-12 aos-item" data-aos="flip-left">
-                    <h2>About Succor</h2>
-                    <br>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Mission Statement</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores dignissimos possimus nulla,
-                                natus assumenda est eum impedit suscipit repellat corporis quisquam eaque rem obcaecati quaerat
-                                dolorum, ullam inventore blanditiis quam?Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Ipsum sint itaque obcaecati modi eligendi corrupti neque blanditiis maxime architecto
-                                ipsam, libero quod atque? Illo consequatur ipsam quaerat? Nihil, possimus rerum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+        <div class="col-md-4 text-center">
+            <i class="far fa-heart fa-7x"></i>
+            <h2>Heading</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <button type="button" class="btn btn-success btn-lg">Give Back</button>
+
+        </div>
+    </div>
+        <!--Mission Statement-->
+        <div class="row" id="mission-statement">
+            <div class="col-md-12 aos-item" data-aos="flip-left">
+                        <h3 class="text-center">Mission Statement</h3>
+                        <p class="text-center">Here at Succor we’re trying to make the world a little bit better for charities that need aid and
+                            those that want to provide help by making the connection process a little bit easier. Sometimes
+                            charities that need help can’t or don’t know how to connect with the volunteers the need to complete
+                            their missions. Our goal is to connect others so we can help our communities and in turn the
+                            world.
+                        </p>            </div>
+        </div>
+
 
         <!--modal-->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
                 <button type="button" class="btn btn-outline-danger" id="signUpBtn">Start Connecting!</button>
                 <div id="modal" class="modal">
                     <div class="modal-content">
@@ -173,7 +128,61 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-3"></div>
         </div>
+
+        <hr />
+
+        <!--Headings with Pictures-->
+
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Provide us with your location</h2>
+                <h4>Discover local charities and upcoming events that you want to get involved in! Connect and get started today.</h4>
+            </div>
+            <div class="col-md-5 aos-item" id="map" data-aos="fade-left">
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-5 aos-item" data-aos="fade-down-right">
+                <img src="./assets/images/volunteers.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-7">
+                <h2>Heading About Something</h2>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum doloribus voluptatibus dicta atque in numquam
+                    odit dolorem, nisi natus possimus, pariatur ex quo sed dolorum suscipit repellat impedit ab dolore.</h4>
+            </div>
+
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Find the perfect cause to support</h2>
+                <h4>We pair a charity in need of aid with those that want to provide aid.</h4>
+            </div>
+            <div class="col-md-5 aos-item" data-aos="fade-left">
+                <img src="./assets/images/give-back.png" class="img-fluid">
+
+            </div>
+        </div>
+        <hr />
+
+        <!--About Succor-->
+
+        <div class="row" id="about-succor">
+            <div class="col-md-5 aos-item" data-aos="flip-left">
+                <img src="./assets/images/Succor-Logo.png" width="250">
+            </div>
+            <div class="col-md-7">
+                <h2>About Succor</h2>
+                <h4>Born out of a Northwestern University coding bootcamp project, we’re three coders applying our knowledge
+                    of coding to the philanthropic endeavor of connecting charities and volunteers. We strive for simplicity,
+                    connecting both providers that wish to give aid and those that want to help providers provide manpower.</h4>
+            </div>
+        </div>
+        <hr />
+    
 
 
         <!--Succor Developers-->
@@ -209,14 +218,12 @@
     </div>
     </div>
 
-
-
-
-    <!-- footer -->
-    <footer>
+    <footer class="page-footer bg-info">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
+                    <br>
+                    <br>
                     <ul class="list-unstyled list-inline social text-center">
                         <li class="list-inline-item">
                             <a href="#">
@@ -254,6 +261,8 @@
 
         </div>
     </footer>
+
+    <!-- Footer -->
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
