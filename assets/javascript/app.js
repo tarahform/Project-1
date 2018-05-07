@@ -22,7 +22,7 @@ var database = firebase.database();
 function charityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var EIN = $('#einModal').val().trim();
+    var EIN = $("#einModal").val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitybasic?user_key=" + API_KEY + "&ein=" + EIN;
 
     $.ajax({
@@ -40,15 +40,15 @@ function charityAPI() {
 // // connect to Charity API ----- For Donors//
 function charityAPI() {
 
-    var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var donorSearch;
+    var API_KEY = "searchBtn"; // Andrews Key //
+    var donorSearch = $("#searchBtn").val().trim();;
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#" /* = insert DIV ID here*/).text(JSON.stringify(response));
+        $("#searchBtn").text(JSON.stringify(response));
         renderButtons();
     });
 }
@@ -100,11 +100,36 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 $(document).ready(function () {
     // Functionality //
 
-    // ------modal //
+    // ------sign up modal //
     $("#signUpBtn").on("click", function () {
         // console.log("Clicked");
-        $("#modal").modal("show");
-        var modal = document.getElementById("modal");
+        $("#signUpModal").modal("show");
+        var modal = document.getElementById("signUpModal");
+        var btn = document.getElementById("submitbtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+    // -------end of modal//
+
+
+    // ------search modal //
+    $("#searchBtn").on("click", function () {
+        // console.log("Clicked");
+        $("#searchModal").modal("show");
+        var modal = document.getElementById("searchModal");
         var btn = document.getElementById("submitbtn");
         var span = document.getElementsByClassName("close")[0];
 
