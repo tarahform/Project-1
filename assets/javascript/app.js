@@ -22,7 +22,7 @@ var database = firebase.database();
 function charityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var EIN /* = insert userinput here*/;
+    var EIN = $('#einModal').val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitybasic?user_key=" + API_KEY + "&ein=" + EIN;
 
     $.ajax({
