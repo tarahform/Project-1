@@ -139,7 +139,8 @@ $(document).ready(function () {
             email: emailInput,
             ein: einInput
         }
-        console.log(newUser);
+        // console.log(newUser);
+        database.ref().push(newUser);
     });
     // end of submit click btn //
 
@@ -171,6 +172,7 @@ $(document).ready(function () {
         // console.log("searchSubmitBtn clicked")
         var searchInput = $("#categoryInput").val().trim();
         console.log(searchInput.value)
+        database.ref().push(searchInput);
     });
     // end of submit click btn //
 
