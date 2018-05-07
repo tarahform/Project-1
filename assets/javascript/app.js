@@ -18,7 +18,7 @@ var database = firebase.database();
 // -------------//
 
 
-// // connect to Charity API //
+// // connect to Charity API ----- For Charity//
 function charityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
@@ -37,12 +37,31 @@ function charityAPI() {
 // // // -------------//
 
 
+// // connect to Charity API ----- For Donors//
+function charityAPI() {
+
+    var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
+    var donorSearch  ;
+    var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        $("#").text(JSON.stringify(response));
+        renderButtons();
+    });
+}
+// // // end of API //
+// // // -------------//
+
+
 // Put map on page //
 var map, infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 39.5, lng: -98.35 },
-        zoom: 3
+        zoom: 8
     });
     infoWindow = new google.maps.InfoWindow;
 
