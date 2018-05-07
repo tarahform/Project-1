@@ -33,7 +33,7 @@ function signupCharityAPI() {
         renderButtons();
     });
 
-    console.log(einModal.value)
+    // console.log(einModal.value)
 }
 // // // end of API //
 // // // -------------//
@@ -43,7 +43,7 @@ function signupCharityAPI() {
 function searchCharityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var donorSearch = $("#categoryInput").val().trim();;
+    var donorSearch = $("#categoryInput").val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
 
     $.ajax({
@@ -181,6 +181,7 @@ $(document).ready(function () {
         $("#searchModal").modal("toggle");
     });
     // end of submit click btn //
+    searchCharityAPI()
 
 
     // End of Functionality //
