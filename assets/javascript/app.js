@@ -18,18 +18,37 @@ var database = firebase.database();
 // -------------//
 
 
-// // connect to Charity API //
+// // connect to Charity API ----- For Charity//
 function charityAPI() {
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
-    var EIN /* = insert userinput here*/;
+    var EIN = $("#einModal").val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitybasic?user_key=" + API_KEY + "&ein=" + EIN;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#").text(JSON.stringify(response));
+        $("#einModal").text(JSON.stringify(response));
+        renderButtons();
+    });
+}
+// // // end of API //
+// // // -------------//
+
+
+// // connect to Charity API ----- For Donors//
+function charityAPI() {
+
+    var API_KEY = "searchBtn"; // Andrews Key //
+    var donorSearch = $("#searchBtn").val().trim();;
+    var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&searchTerm=" + donorSearch;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        $("#searchBtn").text(JSON.stringify(response));
         renderButtons();
     });
 }
@@ -42,7 +61,7 @@ var map, infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 39.5, lng: -98.35 },
-        zoom: 3
+        zoom: 8
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -81,11 +100,36 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 $(document).ready(function () {
     // Functionality //
 
-    // ------modal //
+    // ------sign up modal //
     $("#signUpBtn").on("click", function () {
         // console.log("Clicked");
-        $("#modal").modal("show");
-        var modal = document.getElementById("modal");
+        $("#signUpModal").modal("show");
+        var modal = document.getElementById("signUpModal");
+        var btn = document.getElementById("submitbtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+    // -------end of modal//
+
+
+    // ------search modal //
+    $("#searchBtn").on("click", function () {
+        // console.log("Clicked");
+        $("#searchModal").modal("show");
+        var modal = document.getElementById("searchModal");
         var btn = document.getElementById("submitbtn");
         var span = document.getElementsByClassName("close")[0];
 
