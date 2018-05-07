@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Google Sign-In-->
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <!--CSS Stylesheet-->
@@ -73,15 +75,17 @@
                     <div class="modal-content">
                         <p></p>
                         <form>
-                            <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
-                            <br>
-                            <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
-                            <br>
-                            <input type="emailModal" class="form-control" id="emailInputModal" placeholder="Enter email">
-                            <br>
-                            <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
-                            <br>
-                            <button type="submit" class="btn btn-primary" id="signUpSubmitBtn">Submit</button>
+                            <button class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
+                                <h2>OR</h2>
+                                <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
+                                <br>
+                                <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
+                                <br>
+                                <input type="emailModal" class="form-control" id="emailInputModal" placeholder="Enter email">
+                                <br>
+                                <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
+                                <br>
+                                <button type="submit" class="btn btn-primary" id="signUpSubmitBtn">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -98,7 +102,7 @@
                     <div class="modal-content">
                         <p></p>
                         <form>
-                            <input id="categoryInput" type="text" class="form-control" placeholder="Your search here.">
+                            <input id="categoryInput" type="text" class="form-control" placeholder="Search using location (Ex: Chicago) or category (Ex: Youth).">
                             <br>
                             <button type="submit" class="btn btn-primary" id="searchSubmitBtn">Submit</button>
                         </form>
@@ -303,6 +307,8 @@
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <!--Google Maps API-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAny8QhQ3ISkkGwCimkBoNfskamSbb7hBU&callback=initMap"> </script>
+    <!--Google Signin-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <!--JS-->
     <script src="./assets/javascript/app.js"></script>
 </body>

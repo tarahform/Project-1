@@ -55,6 +55,7 @@ function searchCharityAPI() {
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&rows=10&searchTerm=" + donorSearch;
 
 
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -62,9 +63,8 @@ function searchCharityAPI() {
         // $("#categoryInput").text(JSON.stringify(response));
         renderButtons(response.data);
     });
-    console.log(categoryInput.value)
-}
-
+    // console.log(categoryInput.value)
+} // end of API //
 $("#charityTable").hide();
 function renderButtons(charityList) {
     $("#charityList").empty();
@@ -76,11 +76,27 @@ function renderButtons(charityList) {
         $("#charityList").append(row);
     }
 }
-
-
-// // // end of API //
 // // // -------------//
 
+// // connect to Charity API ----- For Donors Search location//
+function locationCharityAPI(lat, lng) {
+    console.log('AUTO CHARITIY RUNNING')
+    console.log('Lat and Lng is: ' + lat + ', ' + lng)
+
+    var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
+    var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&rows=10&latitude=" + lat + "&longitude=" + lng;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        // $("#categoryInput").text(JSON.stringify(response));
+        renderButtons(response.data);
+    });
+    // console.log(categoryInput.value)
+} // end of API //
+
+// // // -------------//
 
 // Put map on page //
 var map, infoWindow;
@@ -94,10 +110,13 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
+            console.log("POSITION: " + JSON.stringify(position))
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
             };
+            locationCharityAPI(pos.lat, pos.lng)
+            console.log('POS: ' + JSON.stringify(pos))
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -111,21 +130,18 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
-
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(browserHasGeolocation ?
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
-};
-// end of map on page //
+}; // end of map on page //
 // // -------------//
 
 
+// Functionality //
 $(document).ready(function () {
-    // Functionality //
-
     // ------sign up modal //
     $("#signUpBtn").on("click", function (event) {
         event.preventDefault()
