@@ -163,11 +163,13 @@ $(document).ready(function () {
     $("#signUpBtn").on("click", function (event) {
         event.preventDefault()
         // console.log("Clicked");
+        $("#wrongInfoMessage").remove();
         var user = firebase.auth().currentUser;
         if (loggedIn === true) {
             logout();
         } else {
             $("#signUpModal").modal("show");
+
         }
     }); //end of modal -- beginning on submit click function //
 
@@ -178,9 +180,11 @@ $(document).ready(function () {
 
     })
     function signin() {
+        $("#wrongInfoMessage").remove();
         var emailInput = $("#emailInputModal").val().trim();
         var passwordInput = $("#passwordInputModal").val().trim();
         // console.log("Before signin", emailInput);
+
         firebase.auth().signInWithEmailAndPassword(emailInput, passwordInput)
             .then(function (user) {
                 $("#signUpModal").modal("toggle");
@@ -202,11 +206,14 @@ $(document).ready(function () {
             $("#loginLogout").text("Login")
             $("#loginLogoutMessage").text("Login or create a profile to start connecting.");
             $("#signUpBtn").text("Start Connecting!");
+            $("#loginForm").trigger("reset");
+            $("#wrongInfoMessage").remove();
 
         }).catch(function (error) {
 
         });
         $("#loginForm").trigger("reset");
+        $("#wrongInfoMessage").remove();
     }
 
 });
