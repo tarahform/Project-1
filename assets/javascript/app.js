@@ -180,7 +180,7 @@ $(document).ready(function () {
     function signin() {
         var emailInput = $("#emailInputModal").val().trim();
         var passwordInput = $("#passwordInputModal").val().trim();
-        console.log("Before signin", emailInput);
+        // console.log("Before signin", emailInput);
         firebase.auth().signInWithEmailAndPassword(emailInput, passwordInput)
             .then(function (user) {
                 $("#signUpModal").modal("toggle");
@@ -192,17 +192,23 @@ $(document).ready(function () {
             .catch(function (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
+                $("#loginForm").trigger("reset");
+                $("#loginForm").prepend("<p id='wrongInfoMessage'>Wrong login information. Try again.</p>");
                 // console.log("error: " + errorMessage);
             });
     }
     function logout() {
         firebase.auth().signOut().then(function () {
             $("#loginLogout").text("Login")
+            $("#loginLogoutMessage").text("Login or create a profile to start connecting.");
+            $("#signUpBtn").text("Start Connecting!");
 
         }).catch(function (error) {
 
         });
+        $("#loginForm").trigger("reset");
     }
+
 });
 // end of submit click btn //
 
