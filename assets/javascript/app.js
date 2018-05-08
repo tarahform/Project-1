@@ -206,8 +206,6 @@ $(document).ready(function () {
 });
 // end of submit click btn //
 
-
-
 // ------search modal //
 $("#searchBtn").on("click", function (event) {
     event.preventDefault()
