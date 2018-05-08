@@ -72,7 +72,7 @@ function renderButtons(charityList) {
         var charity = charityList[i];
 
         $("#charityTable").show();
-        var row = "<tr><td>" + charity.category + "</td><td>" + charity.charityName + "</td><td><a href>" + charity.url + "</a></td></tr>";
+        var row = "<tr><td>" + charity.category + "<td><a href='" + charity.url + "'>" + charity.charityName + "</a></td></tr>";
         $("#charityList").append(row);
     }
 }
@@ -80,8 +80,8 @@ function renderButtons(charityList) {
 
 // // connect to Charity API ----- For Donors Search location//
 function locationCharityAPI(lat, lng) {
-    console.log('AUTO CHARITIY RUNNING')
-    console.log('Lat and Lng is: ' + lat + ', ' + lng)
+    // console.log('AUTO CHARITIY RUNNING')
+    // console.log('Lat and Lng is: ' + lat + ', ' + lng)
 
     var API_KEY = "aca9cc829aaa6b9d9b3fd4f972f5acf0"; // Andrews Key //
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&rows=10&latitude=" + lat + "&longitude=" + lng;
@@ -110,13 +110,13 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            console.log("POSITION: " + JSON.stringify(position))
+            // console.log("POSITION: " + JSON.stringify(position));
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
             };
             locationCharityAPI(pos.lat, pos.lng)
-            console.log('POS: ' + JSON.stringify(pos))
+            // console.log('POS: ' + JSON.stringify(pos));
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -160,23 +160,42 @@ $(document).ready(function () {
             }
         };
     }); //end of modal -- beginning on submit click function //
+
     $("#signUpSubmitBtn").on("click", function (event) {
         event.preventDefault()
         // console.log("SignUpSubmitBtn clicked")
-
-        var firstNameInput = $("#firstNameModal").val().trim();
-        var lastNameInput = $("#lastNameModal").val().trim();
         var emailInput = $("#emailInputModal").val().trim();
-        var einInput = $("#einModal").val().trim();
+        var passwordInput = $("#passwordInputModal").val().trim();
 
         var newUser = {
-            first: firstNameInput,
-            last: lastNameInput,
             email: emailInput,
-            ein: einInput
+            password: passwordInput
         }
         // console.log(newUser);
         database.ref().push(newUser);
+
+        firebase.auth().signInWithEmailAndPassword(emailInput, passwordInput).catch(function (error) {
+
+            if (newUser) {
+                var user = firebase.auth().currentUser;
+            }
+            if (newUser != null) {
+                var user = document.getElementById("loginForm").innerHTML = "Welcome: " + emailInput;
+            }
+
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // console.log("error: " + errorMessage);
+        });
+
+        function logout() {
+            firebase.auth().signOut().then(function () {
+
+            }).catch(function (error) {
+
+            });
+        }
+
         $("#signUpModal").modal("toggle");
     });
     // end of submit click btn //

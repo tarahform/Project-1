@@ -74,22 +74,18 @@
                 <div id="signUpModal" class="modal">
                     <div class="modal-content">
                         <p></p>
+                        <form id="loginForm">
+                            <input id="emailInputModal" type="text" class="form-control" placeholder="Enter email">
+                            <br>
+                            <input id="passwordInputModal" type="text" class="form-control" placeholder="Enter password">
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="signUpSubmitBtn">Sign In</button>
+                        </form>
                         <form>
-                            <button class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
-                                <h2>OR</h2>
-                                <input id="firstNameModal" type="text" class="form-control" placeholder="First Name">
-                                <br>
-                                <input id="lastNameModal" type="text" class="form-control" placeholder="Last Name">
-                                <br>
-                                <input type="emailModal" class="form-control" id="emailInputModal" placeholder="Enter email">
-                                <br>
-                                <input id="einModal" type="text" class="form-control" placeholder="Employer Identification Number">
-                                <br>
-                                <button type="submit" class="btn btn-primary" id="signUpSubmitBtn">Submit</button>
+                            <button onclick="logout()" type="submit" class="btn btn-primary" id="logoutBtn">Logout</button>
                         </form>
                     </div>
                 </div>
-
             </div>
 
             <div class="col-md-6 text-center">
@@ -118,12 +114,10 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>Charity Name</th>
-                            <th>URL</th>
+                            <th>Charity Name and URL</th>
                         </tr>
                     </thead>
-                    <tbody id="charityList">
-                    </tbody>
+                    <tbody id="charityList"></tbody>
                 </table>
             </div>
         </div>
