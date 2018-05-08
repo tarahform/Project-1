@@ -54,8 +54,6 @@ function searchCharityAPI() {
     var donorSearch = $("#categoryInput").val().trim();
     var queryURL = "http://data.orghunter.com/v1/charitysearch?user_key=" + API_KEY + "&rows=10&searchTerm=" + donorSearch;
 
-
-
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -143,96 +141,103 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // Functionality //
 $(document).ready(function () {
     // ------sign up modal //
+    var loggedIn = false;
+    var modal = document.getElementById("signUpModal");
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log("signed in: " + user.email);
+            loggedIn = true;
+            // User is signed in.
+        } else {
+            // No user is signed in.
+            console.log("User has been signed out")
+            loggedIn = false;
+        }
+    });
     $("#signUpBtn").on("click", function (event) {
         event.preventDefault()
         // console.log("Clicked");
-        $("#signUpModal").modal("show");
-        var modal = document.getElementById("signUpModal");
-        var btn = document.getElementById("signUpBtn");
-
-        btn.onclick = function () {
-            modal.style.display = "block";
+        var user = firebase.auth().currentUser;
+        if (loggedIn === true) {
+            logout();
+        } else {
+            $("#signUpModal").modal("show");
         }
-
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
     }); //end of modal -- beginning on submit click function //
 
-    $("#signUpSubmitBtn").on("click", function (event) {
+    $("#signInSubmitBtn").on("click", function (event) {
         event.preventDefault()
         // console.log("SignUpSubmitBtn clicked")
+        signin();
+
+    })
+    function signin() {
         var emailInput = $("#emailInputModal").val().trim();
         var passwordInput = $("#passwordInputModal").val().trim();
-
-        var newUser = {
-            email: emailInput,
-            password: passwordInput
-        }
-        // console.log(newUser);
-        database.ref().push(newUser);
-
-        firebase.auth().signInWithEmailAndPassword(emailInput, passwordInput).catch(function (error) {
-
-            if (newUser) {
-                var user = firebase.auth().currentUser;
-            }
-            if (newUser != null) {
-                var user = document.getElementById("loginForm").innerHTML = "Welcome: " + emailInput;
-            }
-
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // console.log("error: " + errorMessage);
-        });
-
-        function logout() {
-            firebase.auth().signOut().then(function () {
-
-            }).catch(function (error) {
-
+        console.log("Before signin", emailInput);
+        firebase.auth().signInWithEmailAndPassword(emailInput, passwordInput)
+            .then(function (user) {
+                $("#signUpModal").modal("toggle");
+                console.log(user);
+                $("#loginLogout").text("Welcome");
+                $("#loginLogoutMessage").text(emailInput);
+                $("#signUpBtn").text("Sign Out");
+            })
+            .catch(function (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // console.log("error: " + errorMessage);
             });
+    }
+    function logout() {
+        firebase.auth().signOut().then(function () {
+            $("#loginLogout").text("Login")
+
+        }).catch(function (error) {
+
+        });
+    }
+});
+// end of submit click btn //
+
+
+
+// ------search modal //
+$("#searchBtn").on("click", function (event) {
+    event.preventDefault()
+    // console.log("Clicked");
+    $("#searchModal").modal("show");
+    var modal = document.getElementById("searchModal");
+    var btn = document.getElementById("searchBtn");
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
         }
+    };
+}); //end of modal -- beginning on submit click function //
 
-        $("#signUpModal").modal("toggle");
-    });
-    // end of submit click btn //
-
-
-
-    // ------search modal //
-    $("#searchBtn").on("click", function (event) {
-        event.preventDefault()
-        // console.log("Clicked");
-        $("#searchModal").modal("show");
-        var modal = document.getElementById("searchModal");
-        var btn = document.getElementById("searchBtn");
-
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
-
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
-    }); //end of modal -- beginning on submit click function //
-
-    $("#searchSubmitBtn").on("click", function (event) {
-        event.preventDefault()
-        // console.log("searchSubmitBtn clicked")
-        var searchInput = $("#categoryInput").val().trim();
-        // console.log(searchInput.value)
-        // database.ref().push(searchInput);
-        $("#searchModal").modal("toggle");
-        searchCharityAPI()
-    }); // end of submit click btn //
+$("#searchSubmitBtn").on("click", function (event) {
+    event.preventDefault()
+    // console.log("searchSubmitBtn clicked")
+    var searchInput = $("#categoryInput").val().trim();
+    // console.log(searchInput.value)
+    // database.ref().push(searchInput);
+    $("#searchModal").modal("toggle");
+    searchCharityAPI()
+}); // end of submit click btn //
 
 
 
     // End of Functionality //
     // -------------//
-});

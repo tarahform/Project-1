@@ -124,3 +124,8 @@ footer a {
   .cl {
       margin-top: 50px;
   }
+
+  #betweenBtn {
+      margin-top: 10px;
+      font-weight: bold;
+  }

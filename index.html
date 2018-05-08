@@ -65,10 +65,10 @@
         <!--Bar Under Image with Icons-->
 
         <div class="row" id="icons">
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-center" id="loginIcon">
                 <i class="fab fa-hubspot fa-7x"></i>
-                <h2>Sign Up</h2>
-                <p>Create a profile to start connecting.</p>
+                <h2 id="loginLogout">Login</h2>
+                <p id="loginLogoutMessage">Login or create a profile to start connecting.</p>
                 <!--sign up modal-->
                 <button type="button" class="btn btn-success" id="signUpBtn">Start Connecting!</button>
                 <div id="signUpModal" class="modal">
@@ -77,12 +77,12 @@
                         <form id="loginForm">
                             <input id="emailInputModal" type="text" class="form-control" placeholder="Enter email">
                             <br>
-                            <input id="passwordInputModal" type="text" class="form-control" placeholder="Enter password">
+                            <input id="passwordInputModal" type="password" class="form-control" placeholder="Enter password">
                             <br>
-                            <button type="submit" class="btn btn-primary" id="signUpSubmitBtn">Sign In</button>
-                        </form>
-                        <form>
-                            <button onclick="logout()" type="submit" class="btn btn-primary" id="logoutBtn">Logout</button>
+                            <button type="submit" class="btn btn-primary" id="signInSubmitBtn">Sign In</button>
+                            <br>
+                            <p id="betweenBtn">Or create an account</p>
+                            <button type="submit" class="btn btn-info" id="createProfileBtn">Sign Up</button>
                         </form>
                     </div>
                 </div>
