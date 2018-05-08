@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Google Sign-In-->
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!--CSS Stylesheet-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- AOS Stylesheet-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css" rel="stylesheet">
+    <!--Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
+        crossorigin="anonymous">
+    <title>Succor</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/images/Succor-Logo.png" width="50" height="50" alt="Succor"> Succor
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#how-it-works">How it Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#icons">Find a Charity</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="index.html#mission-statement">Mission Statement</a>
+                        <a class="dropdown-item" href="index.html#about-succor">About Us</a>
+                        <a class="dropdown-item" href="index.html#developers">Developers</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Navbar End-->
+
+
+    <!--Header Image-->
+    <img class="header-image" src="./assets/images/Connecting.jpg" class="img-fluid">
+
+    <div class="container">
+        <!--Bar Under Image with Icons-->
+
+        <div class="row" id="icons">
+            <div class="col-md-6 text-center" id="loginIcon">
+                <i class="fab fa-hubspot fa-7x"></i>
+                <h2 id="loginLogout">Login</h2>
+                <p id="loginLogoutMessage">Login or create a profile to start connecting.</p>
+                <!--sign up modal-->
+                <button type="button" class="btn btn-success" id="signUpBtn">Start Connecting!</button>
+                <div id="signUpModal" class="modal">
+                    <div class="modal-content">
+                        <p></p>
+                        <form id="loginForm">
+                            <input id="emailInputModal" type="text" class="form-control" placeholder="Enter email">
+                            <br>
+                            <input id="passwordInputModal" type="password" class="form-control" placeholder="Enter password">
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="signInSubmitBtn">Sign In</button>
+                            <br>
+                            <p id="betweenBtn">Or create an account</p>
+                            <button type="submit" class="btn btn-info" id="createProfileBtn">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <i class="fas fa-hands-helping fa-7x"></i>
+                <h2>Search</h2>
+                <p>Search for a charity to donate to.</p>
+                <!--search modal-->
+                <button type="button" class="btn btn-success" id="searchBtn">Start Searching!</button>
+                <div id="searchModal" class="modal">
+                    <div class="modal-content">
+                        <p></p>
+                        <form>
+                            <input id="categoryInput" type="text" class="form-control" placeholder="Search using location (Ex: Chicago) or category (Ex: Youth).">
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="searchSubmitBtn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Charity List-->
+        <div class="row cl">
+            <div class="col-md-12" id="charityTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Charity Name and URL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="charityList"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--Mission Statement-->
+        <div class="row" id="mission-statement">
+            <div class="col-md-12 aos-item" data-aos="flip-left">
+                <h3 class="text-center">Mission Statement</h3>
+                <p class="text-center">Here at Succor we’re trying to make the world a little bit better for charities that need aid and those that
+                    want to provide help by making the connection process a little bit easier. Sometimes charities that need
+                    help can’t or don’t know how to connect with the volunteers the need to complete their missions. Our
+                    goal is to connect others so we can help our communities and in turn the world.
+                </p>
+            </div>
+        </div>
+
+        <hr />
+
+        <!--Headings with Pictures-->
+
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Provide us with your location</h2>
+                <h4>Discover local charities and upcoming events that you want to get involved in! Connect and get started today.
+                </h4>
+            </div>
+            <div class="col-md-5 aos-item" id="map" data-aos="fade-left">
+            </div>
+        </div>
+        <hr />
+        <div class="row" id="how-it-works">
+            <div class="col-md-5 aos-item" data-aos="fade-down-right">
+                <img src="./assets/images/volunteers.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-7">
+                <h2>How it works</h2>
+                <h4>We strive for simplicity, connecting both providers that wish to give aid and those that want to help providers
+                    provide manpower.
+                    <br> The steps are simple.
+                    <br> 1.Enter your zip code into the map.
+                    <br> 2.Provide us with a little information about how you want to aid others or how you’d like to be aided.
+                    <br> 3.We pair a charity in need of aid with those that want to provide aid.</h4>
+            </div>
+
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Find the perfect cause to support</h2>
+                <h4>We pair a charity in need of aid with those that want to provide aid.</h4>
+            </div>
+            <div class="col-md-5 aos-item" data-aos="fade-left">
+                <img src="./assets/images/give-back.png" class="img-fluid">
+
+            </div>
+        </div>
+        <hr />
+
+
+        <!--About Succor-->
+
+        <div class="row" id="about-succor">
+            <div class="col-md-4 aos-item" data-aos="zoom-in-down">
+                <img src="./assets/images/Succor-Logo.png" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2>About Succor</h2>
+                <h4>Born out of a Northwestern University coding bootcamp project, we’re three coders applying our knowledge
+                    of coding to the philanthropic endeavor of connecting charities and volunteers. We strive for simplicity,
+                    connecting both providers that wish to give aid and those that want to help providers provide manpower.</h4>
+            </div>
+        </div>
+        <hr />
+
+
+
+        <!--Succor Developers-->
+        <div class="row" id="developers">
+            <div class="col-md-12 aos-item" data-aos="flip-up">
+                <h2 class="developers">Developers</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card developer-image">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/TarahPerry.jpg" class="image img-fluid" alt="">
+                    </div>
+                    <div class="overlay">
+                        <div class="text">Tarah is web developer from Austin, Texas. Her background is in cave research. In her spare time
+                            Tarah can be found on a new hiking trail or in a bar trying to find new sour brews.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card developer-image">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/MatStover.jpg" class="image img-fluid" alt="">
+                    </div>
+                    <div class="overlay">
+                        <div class="text">Mat is a web developer from Evanston, Illinois. He has a background in illustration and audiology
+                            research. He enjoy's drawing and reading in his spare time. </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 aos-item" data-aos="flip-down">
+                <div class="card developer-image">
+                    <div class="card-body">
+                        <img src="./assets/images/About-Developers/AndrewDavies.jpg" class="image img-fluid" alt="">
+                    </div>
+                    <div class="overlay">
+                        <div class="text">Andrew is a web developer from Chicago, Illinois. He has a background in digital analytics and loves
+                            attending music festivals.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+
+
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <br>
+                    <br>
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-instagram fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-google-plus fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in fa-3x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <p>Copyright &copy; Succor 2018</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Footer -->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!--AOS Sript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+    <!--FireBase-->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <!--Google Maps API-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAny8QhQ3ISkkGwCimkBoNfskamSbb7hBU&callback=initMap"> </script>
+    <!--Google Signin-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <!--JS-->
+    <script src="./assets/javascript/app.js"></script>
+</body>
+
+</html>
